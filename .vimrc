@@ -36,27 +36,34 @@ let g:spacegray_use_italics = 1
 " Ale
 let g:ale_completion_enabled = 1
 let g:ale_linters = {
-\  'python': ['pylint'],
+\  'python': ['flake8', 'pylint', 'pyls'],
 \  'ruby': ['rubocop'],
 \  'javascript': ['eslint', 'flow'],
 \  'go': ['gofmt'],
-\  'yaml': ['yamllint']
+\  'yaml': ['yamllint'],
+\  'c': ['gcc', 'clang']
 \}
 let g:ale_fixers = {
-\  'python': ['black'],
+\  '*': ['remove_trailing_lines', 'trim_whitespace'],
+\  'python': ['autopep8', 'black', 'isort', 'remove_trailing_lines', 'trim_whitespace'], 
 \  'ruby': ['rubocop'],
 \  'go': ['gofmt'],
 \  'javascript': ['eslint', 'prettier'],
 \  'json': ['prettier'],
 \  'css': ['prettier'],
 \  'markdown': ['prettier'],
+\  'c': ['gcc', 'clang']
 \}
-let g:ale_fix_on_save = 1
-
+let g:ale_completion_enabled = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" Set this in your vimrc file to disabling highlighting
+let g:ale_set_highlights = 0
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
 " Flake 8
-let g:flake8_show_in_file=1  " show
+" let g:flake8_show_in_file=1  " show
 " Nerd Commenter
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
