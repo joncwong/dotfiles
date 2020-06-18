@@ -34,9 +34,10 @@ set smartcase
 set mouse=a
 " Display line numbers on the left
 set number
+" Map space as leader
+map <Space> <Leader>
 " Theme
-colorscheme spacegray
-let g:spacegray_use_italics = 1
+" colorscheme spacegray
 " Ale
 let g:ale_linters = {
 \  'python': ['flake8', 'pylint', 'pyls'],
@@ -48,7 +49,7 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
 \  '*': ['remove_trailing_lines', 'trim_whitespace'],
-\  'python': ['yapf', 'black', 'isort', 'remove_trailing_lines', 'trim_whitespace'], 
+\  'python': ['black', 'yapf', 'isort', 'remove_trailing_lines', 'trim_whitespace'], 
 \  'ruby': ['rubocop'],
 \  'go': ['gofmt'],
 \  'javascript': ['eslint', 'prettier'],
@@ -57,7 +58,7 @@ let g:ale_fixers = {
 \  'markdown': ['prettier'],
 \  'c': ['gcc', 'clang']
 \}
-let g:ale_completion_enabled = 0
+let g:ale_completion_enabled = 1
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
@@ -151,6 +152,10 @@ nnoremap <leader>F :ALEFix<return>
 " Esc key remap to kj masterrace
 inoremap kj <esc>
 
+" Crtl p mappings
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
 
 " Vundle Plugins
 Plugin 'dense-analysis/ale'
@@ -161,6 +166,12 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'fatih/vim-go'
 Plugin 'ferranpm/vim-autopairs'
 Plugin 'neoclide/coc.nvim'
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+colorscheme nord
