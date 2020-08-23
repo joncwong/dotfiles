@@ -2,8 +2,9 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
 syntax on
 
@@ -39,25 +40,25 @@ map <Space> <Leader>
 " Theme
 " colorscheme spacegray
 " Ale
-let g:ale_linters = {
-\  'python': ['flake8', 'pylint', 'pyls'],
-\  'ruby': ['rubocop'],
-\  'javascript': ['eslint', 'flow'],
-\  'go': ['gofmt'],
-\  'yaml': ['yamllint'],
-\  'c': ['gcc', 'clang']
-\}
-let g:ale_fixers = {
-\  '*': ['remove_trailing_lines', 'trim_whitespace'],
-\  'python': ['black', 'yapf', 'isort', 'remove_trailing_lines', 'trim_whitespace'], 
-\  'ruby': ['rubocop'],
-\  'go': ['gofmt'],
-\  'javascript': ['eslint', 'prettier'],
-\  'json': ['prettier'],
-\  'css': ['prettier'],
-\  'markdown': ['prettier'],
-\  'c': ['gcc', 'clang']
-\}
+" let g:ale_linters = {
+" \  'python': ['flake8', 'pylint', 'pyls'],
+" \  'ruby': ['rubocop'],
+" \  'javascript': ['eslint', 'flow'],
+" \  'go': ['gofmt'],
+" \  'yaml': ['yamllint'],
+" \  'c': ['gcc', 'clang']
+" \}
+" let g:ale_fixers = {
+" \  '*': ['remove_trailing_lines', 'trim_whitespace'],
+" \  'python': ['black', 'yapf', 'isort', 'remove_trailing_lines', 'trim_whitespace'], 
+" \  'ruby': ['rubocop'],
+" \  'go': ['gofmt'],
+" \  'javascript': ['eslint', 'prettier'],
+" \  'json': ['prettier'],
+" \  'css': ['prettier'],
+" \  'markdown': ['prettier'],
+" \  'c': ['gcc', 'clang']
+" \}
 let g:ale_completion_enabled = 1
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
@@ -158,20 +159,26 @@ let g:ctrlp_cmd = 'CtrlP'
 
 
 " Vundle Plugins
-Plugin 'dense-analysis/ale'
-Plugin 'vim-airline/vim-airline'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'fatih/vim-go'
-Plugin 'ferranpm/vim-autopairs'
-Plugin 'neoclide/coc.nvim'
-Plugin 'arcticicestudio/nord-vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
+" Plugin 'dense-analysis/ale'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'fatih/vim-go'
+Plug 'ferranpm/vim-autopairs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-go', {'do': 'yarn install --frozen-lockfile'}
+Plug 'rcjsuen/dockerfile-language-server-nodejs', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/sql-language-server', {'do': 'yarn install --frozen-lockfile'}
+Plug 'arcticicestudio/nord-vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
 
+call plug#end()
 
-call vundle#end()            " required
+" call vundle#end()            " required
 filetype plugin indent on    " required
-
 colorscheme nord
