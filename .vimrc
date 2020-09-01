@@ -1,9 +1,8 @@
+  
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
+" set the runtime path to include Vim Plug and initialize
 call plug#begin('~/.vim/plugged')
 
 syntax on
@@ -15,7 +14,8 @@ set backspace=indent,eol,start  " more powerful backspacing
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
+set updatetime=100
+set t_Co=256
 
 set tabstop=4
 " when indenting with '>', use 4 spaces width
@@ -37,46 +37,8 @@ set mouse=a
 set number
 " Map space as leader
 map <Space> <Leader>
-" Theme
-" colorscheme spacegray
-" Ale
-" let g:ale_linters = {
-" \  'python': ['flake8', 'pylint', 'pyls'],
-" \  'ruby': ['rubocop'],
-" \  'javascript': ['eslint', 'flow'],
-" \  'go': ['gofmt'],
-" \  'yaml': ['yamllint'],
-" \  'c': ['gcc', 'clang']
-" \}
-" let g:ale_fixers = {
-" \  '*': ['remove_trailing_lines', 'trim_whitespace'],
-" \  'python': ['black', 'yapf', 'isort', 'remove_trailing_lines', 'trim_whitespace'], 
-" \  'ruby': ['rubocop'],
-" \  'go': ['gofmt'],
-" \  'javascript': ['eslint', 'prettier'],
-" \  'json': ['prettier'],
-" \  'css': ['prettier'],
-" \  'markdown': ['prettier'],
-" \  'c': ['gcc', 'clang']
-" \}
-let g:ale_completion_enabled = 1
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
-" Write this in your vimrc file
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 1
-" You can disable this option too
-" if you don't want linters to run on opening a file
-let g:ale_lint_on_enter = 0
-" Set this in your vimrc file to disabling highlighting
-let g:ale_set_highlights = 0
-" Set this. Airline will handle the rest.
-let g:airline#extensions#ale#enabled = 1
-" Flake 8
-" let g:flake8_show_in_file=1  " show
+
+
 " Nerd Commenter
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
@@ -159,26 +121,21 @@ let g:ctrlp_cmd = 'CtrlP'
 
 
 " Vundle Plugins
-" Plugin 'dense-analysis/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'fatih/vim-go'
 Plug 'ferranpm/vim-autopairs'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-go', {'do': 'yarn install --frozen-lockfile'}
-Plug 'rcjsuen/dockerfile-language-server-nodejs', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/sql-language-server', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'morhetz/gruvbox'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 
-call plug#end()
 
-" call vundle#end()            " required
+call plug#end()
 filetype plugin indent on    " required
-colorscheme nord
+
+" colorscheme nord
+colorscheme gruvbox
