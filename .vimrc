@@ -208,19 +208,34 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " Esc key remap to kj masterrace
 inoremap kj <esc>
 
+" Move lines up and down with these mappings. Source: https://vim.fandom.com/wiki/Moving_lines_up_or_down
+" nnoremap <A-j> :m .+1<CR>==
+" nnoremap <A-k> :m .-2<CR>==
+" inoremap <A-j> <Esc>:m .+1<CR>==gi
+" inoremap <A-k> <Esc>:m .-2<CR>==gi
+" vnoremap <A-j> :m '>+1<CR>gv=gv
+" vnoremap <A-k> :m '<-2<CR>gv=gv
+
 " Crtl p mappings
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+" Tab experience
+map <leader>tn :tabnew<cr>
+map <leader>t<leader> :tabnext
+map <leader>tm :tabmove
+map <leader>tc :tabclose<cr>
+map <leader>to :tabonly<cr>
 
 " Vundle Plugins
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'fatih/vim-go'
-Plug 'ferranpm/vim-autopairs'
 Plug 'morhetz/gruvbox'
+Plug 'wojciechkepka/vim-github-dark'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 " Use release branch (recommend)
@@ -231,3 +246,5 @@ filetype plugin indent on    " required
 
 " colorscheme nord
 colorscheme gruvbox
+" colorscheme ghdark
+"let g:gh_color = "soft"
