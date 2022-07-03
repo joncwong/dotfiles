@@ -13,12 +13,7 @@ antigen bundle git
 antigen bundle command-not-found
 antigen bundle docker
 antigen bundle pip
-antigen theme cloud
-
-# Load bundles from external repos.
-# antigen bundle zsh-users/zsh-completions
-# antigen bundle zsh-users/zsh-autosuggestions
-# antigen bundle zsh-users/zsh-syntax-highlighting
+antigen theme robbyrussell
 
 # Tell Antigen that you're done.
 antigen apply
