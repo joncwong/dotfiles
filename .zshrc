@@ -1,7 +1,4 @@
-source /Users/jonwong/.zsh/antigen.zsh
-export PATH="/usr/local/sbin:$PATH"
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+source ~/.zsh/antigen.zsh
 export CLICOLOR=1
 
 # ls right after cd'ing into a directory
