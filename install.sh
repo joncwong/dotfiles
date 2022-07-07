@@ -1,4 +1,5 @@
 #!/bin/bash
+mkdir ~/.zsh
 curl -L git.io/antigen > ~/.zsh/antigen.zsh
 source ~/.zsh/antigen.zsh
 source ~/.zshrc
